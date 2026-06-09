@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Primary Meta Tags -->
+  <title>Stockastic - Smart Stock Trading Platform</title>
+  <meta name="description"
+    content="Trade smarter with Stockastic. Your all-in-one platform for stock trading, portfolio management, and real-time market analysis powered by AI." />
+  <meta name="author" content="Stockastic" />
+  <meta name="theme-color" content="#080808" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Stockastic - Smart Stock Trading Platform" />
+  <meta property="og:description"
+    content="Trade smarter with Stockastic. Your all-in-one platform for stock trading, portfolio management, and real-time market analysis." />
+  <meta property="og:image" content="/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Stockastic" />
+  <meta name="twitter:title" content="Stockastic - Smart Stock Trading Platform" />
+  <meta name="twitter:description"
+    content="Trade smarter with Stockastic. Your all-in-one platform for stock trading, portfolio management, and real-time market analysis." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles loaded by Vite -->
+  <script>
+    (function () {
+      var key = "stockastic-theme";
+      var stored = localStorage.getItem(key);
+      var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = "dark";
+
+      if (stored === "light" || stored === "dark") {
+        theme = stored;
+      } else if (stored === "system") {
+        theme = systemDark ? "dark" : "light";
+      }
+
+      var root = document.documentElement;
+      root.classList.remove("light", "dark");
+      root.classList.add(theme);
+      root.style.colorScheme = theme;
+    })();
+  </script>
+
+  <style>
+    /* Critical CSS for preventing FOUC */
+    html {
+      background-color: #080808;
+      color-scheme: dark;
+    }
+
+    body {
+      background: linear-gradient(135deg, #080808 0%, #0a1015 50%, #080808 100%);
+      min-height: 100vh;
+    }
+
+    html.light {
+      background-color: #eaf0f6;
+      color-scheme: light;
+    }
+
+    html.light body {
+      background: linear-gradient(135deg, #eaf0f6 0%, #edf3f8 50%, #e6edf4 100%);
+    }
+
+    html.dark body {
+      background: linear-gradient(135deg, #080808 0%, #0a1015 50%, #080808 100%);
+      min-height: 100vh;
+    }
+
+    /* Loading shimmer for initial load */
+    #root:empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #root:empty::after {
+      content: "";
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(255, 86, 64, 0.2);
+      border-top-color: #FF5640;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
